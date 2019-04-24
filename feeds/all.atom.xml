@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Sanic Framework</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2019-03-04T00:00:00-05:00</updated><entry><title>Security Bulletin: SSL Handshake Denial of Service</title><link href="/security-bulletin-ssl-handshake-denial-of-service" rel="alternate"></link><published>2019-03-04T00:00:00-05:00</published><updated>2019-03-04T00:00:00-05:00</updated><author><name>Sanic Dev Team</name></author><id>tag:None,2019-03-04:/security-bulletin-ssl-handshake-denial-of-service</id><summary type="html">&lt;p&gt;&lt;strong&gt;Security Bulletin: SSL Handshake Denial of Service&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Notice&lt;/strong&gt;
+This bulletin was posted on March 4th, 2019 and has been updated as of March 7th, 2019&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Background&lt;/strong&gt;
+On Sunday February 24th the Sanic Community was contacted about a recently
+discovered issue when implementing SSL directly through Sanic. The core development 
+team …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Security Bulletin: SSL Handshake Denial of Service&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Notice&lt;/strong&gt;
+This bulletin was posted on March 4th, 2019 and has been updated as of March 7th, 2019&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Background&lt;/strong&gt;
+On Sunday February 24th the Sanic Community was contacted about a recently
+discovered issue when implementing SSL directly through Sanic. The core development 
+team reviewed options and impact and has identified several remediation paths.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;
+Sanic running under versions of Python prior to 3.7 are impacted by a possible
+denial of service whereby the SSL handshake is left in an incomplete state,
+causing connection exhaustion or memory exhaustion, preventing further
+connections. This is due to Python not implementing a connection timeout for
+SSL prior to version 3.7. Ref: https://bugs.python.org/issue29970&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Who is affected?&lt;/strong&gt;
+Anyone using Sanic to terminate SSL connections and using Python versions
+3.6.x and prior when not using uvloop (installed with SANIC_NO_UVLOOP, as
+for example in alpine-based containers)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Remediation options, in order of preference&lt;/strong&gt;
+- Update to Python 3.7 - the fix is included in Python itself
+- Terminate SSL at a load balancer or a proxy (such as AWS' ALB or nginx)
+- Implement the patch created by Richard Kuesters - see: https://github.com/vltr/sslproto37 
+  This includes simple examples including how to see the DOS issue. Earlier
+  revisions indicated an increase on overhead, however we are backporting
+  the change to 3.7 for the handshake, and so no additional impact is expected.&lt;/p&gt;</content></entry><entry><title>Sanic is now an organization</title><link href="/sanic-is-now-an-organization" rel="alternate"></link><published>2018-09-28T00:00:00-04:00</published><updated>2018-09-28T00:00:00-04:00</updated><author><name>Sanic Dev Team</name></author><id>tag:None,2018-09-28:/sanic-is-now-an-organization</id><summary type="html">&lt;p&gt;If you have visited the &lt;a href="https://github.com/huge-success/sanic"&gt;Sanic GitHub&lt;/a&gt;, you may have noticed something different.&lt;/p&gt;
+&lt;p&gt;Sanic is now a community driven organization!&lt;/p&gt;
+&lt;p&gt;A great deal of thanks goes out to the men and women that built Sanic when it was an individual repository. Sanic is now in the hands of the community …&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you have visited the &lt;a href="https://github.com/huge-success/sanic"&gt;Sanic GitHub&lt;/a&gt;, you may have noticed something different.&lt;/p&gt;
+&lt;p&gt;Sanic is now a community driven organization!&lt;/p&gt;
+&lt;p&gt;A great deal of thanks goes out to the men and women that built Sanic when it was an individual repository. Sanic is now in the hands of the community to work together to push it forward and keep it going fast.&lt;/p&gt;
+&lt;p&gt;Here are some changes you will see:&lt;/p&gt;
+&lt;h3&gt;Versioning and release schedule&lt;/h3&gt;
+&lt;p&gt;The current version of Sanic is &lt;code&gt;0.8.3&lt;/code&gt;, and it follows &lt;a href="https://semver.org/"&gt;semantic versioning&lt;/a&gt;. Going forward, this will change to &lt;a href="https://calver.org/"&gt;calendar versioning&lt;/a&gt;.&lt;/p&gt;
+&lt;h4&gt;Why?&lt;/h4&gt;
+&lt;p&gt;Calendar versioning promotes regularity. The goal of the Sanic project is to move fast. To accomplish this as a group (and not just in the benchmarks) we are adopting a cycle of &lt;strong&gt;4 releases&lt;/strong&gt; per year. They will be evenly spaced every three months (March, June, September, December).&lt;/p&gt;
+&lt;h4&gt;Next release date&lt;/h4&gt;
+&lt;p&gt;The next release will happen in &lt;strong&gt;December 2018&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The December releases will be marked as &lt;code&gt;LTS&lt;/code&gt; (aka Long-Term Support). This means that the team will continue to push bug and security fixes so long as that version is supported. Any non-LTS release will be supported up until the next release.&lt;/p&gt;
+&lt;p&gt;For this first community-backed release, the team is going through the backlog of issues and PRs to merge what we can to make "small" changes and fixes. The goal is to cleanup the project where we can, increase the testing coverage, and begin the first LTS cycle with a solid build.&lt;/p&gt;
+&lt;p&gt;We are still working through to decide what will be included, but you can expect a feature freeze in the next month or so.&lt;/p&gt;
+&lt;h3&gt;Release manager&lt;/h3&gt;
+&lt;p&gt;We are adopting a strategy of naming a year long position of "release manager", or "RM". The main job of the RM is to keep the core dev team and the community moving towards the release dates. They will lead the charge in identifying and scheduling features, bug fixes and enhancements into the release calendar.&lt;/p&gt;
+&lt;p&gt;It is with great pleasure that we announce the &lt;strong&gt;2019 Release Managers&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stephen Sadowski, aka &lt;a href="https://github.com/sjsadowski"&gt;&lt;code&gt;@sjsadowski&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yun Xu, aka &lt;a href="https://github.com/yunstanford"&gt;&lt;code&gt;@yunstanford&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Yun and Stephen will be overseeing the next four releases of Sanic: 18.12-LTS, 19.3, 19.6, and 19.9.&lt;/p&gt;
+&lt;p&gt;Good luck to Yun and Stephen, and thanks for stepping up!&lt;/p&gt;
+&lt;h3&gt;How will this impact me?&lt;/h3&gt;
+&lt;p&gt;The short answer is that it shouldn't. You should receive more regular updates, but the package itself will not be changing course.&lt;/p&gt;
+&lt;p&gt;If you have contributed in the past, thanks! We welcome more contributions.&lt;/p&gt;
+&lt;h3&gt;How can I help?&lt;/h3&gt;
+&lt;p&gt;Sanic aims to be a community run project. Therefore, we always are looking for contributors from the people that are using it.&lt;/p&gt;
+&lt;p&gt;Reviewing the &lt;a href="https://github.com/huge-success/sanic/labels/help%20wanted"&gt;&lt;code&gt;Help Wanted&lt;/code&gt; tag&lt;/a&gt; in &lt;a href="https://github.com/huge-success/sanic/issues"&gt;the issues&lt;/a&gt; is a great place to start if you want to contribute code to the project.&lt;/p&gt;
+&lt;p&gt;But, we need thought contributors too, so responding to issues with positive commentary is also &lt;strong&gt;very&lt;/strong&gt; welcome.&lt;/p&gt;
+&lt;h4&gt;But, I have never helped on an open source project before...&lt;/h4&gt;
+&lt;p&gt;So what. All skill levels of pythonistas are welcome. Whether you are able to help diagnose bugs, build new features, write documentation, or even just engage in conversations on GitHub, we'd love to have your support. Maybe you would like to help us build this site up, or maybe you would like to start writing content (blogs, videos, tutorials). It all counts and it all matters.&lt;/p&gt;
+&lt;p&gt;You can also check out our &lt;a href="https://groups.google.com/forum/#!forum/sanic-dev"&gt;development mailing list&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We look forward to your thoughts and help!&lt;/p&gt;</content></entry></feed>
