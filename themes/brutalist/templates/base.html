@@ -81,14 +81,9 @@ mixpanel.init("d33f1d0986bff000cc29ae55c9700e03");</script><!-- end Mixpanel -->
     {% block header %}
     <div role="banner" id="masthead">
         <header>
-            {% if GRAVATAR %}
-            <a href="/"><img src="{{ GRAVATAR }}" alt="Matt McManus Avatar" class="gravatar"></a>
-            {% elif LOGO %}
-            <a href="/"><img src="{{ SITEURL }}/images/{{ LOGO }}" alt="McManus Logo"></a>
-            {% else %}
-            <h1><a href="/">{{ SITENAME }}</a></h1>
-            {% endif %}
-            <a href="#menu" id="menu-link">more stuff</a>
+            <a href="/"><img src="https://raw.githubusercontent.com/huge-success/sanic-assets/master/png/sanic-framework-logo-circle-128x128.png" alt="Sanic"></a>
+            <h1>Build fast. Run fast.</h1>
+            <a href="#menu" id="menu-link">menu</a>
             <nav id="menu">
                 <ul>
                     {% if DISPLAY_PAGES_ON_MENU %}

@@ -30,11 +30,11 @@
                             </ul>
                         </div>
                         <div class="content">
-                             {{ article.content|safe }}
+                             {{ article.content|safe|truncate(90) }}
                           </div>
-                        {# <a href="{{ SITEURL }}/{{ article.url }}">
-                            <p class="readmore">Read more...</p>
-                        </a> #}
+                        <a href="{{ SITEURL }}/{{ article.url }}">
+                            <p class="readmore">Read more</p>
+                        </a>
                     </article>
                 </div>
             </li>
