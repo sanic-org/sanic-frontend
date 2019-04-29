@@ -42,6 +42,7 @@ MENUITEMS = [
     ("Docs", "https://sanic.readthedocs.io"),
     ("Source", "https://github.com/huge-success/sanic"),
     ("Forums", "https://community.sanicframework.org/"),
+    ("Awesome Sanic", "https://github.com/mekicha/awesome-sanic#readme/"),
 ]
 GITHUB = "https://github.com/huge-success/sanic"
 SITEDESCRIPTION = "Sanic is an async enabled Python 3.5+ web framework that's written to go fast. "
