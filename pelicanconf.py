@@ -36,12 +36,13 @@ SOCIAL = (
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
-# RELATIVE_URLS = True
+RELATIVE_URLS = True
 THEME = "themes/brutalist"
 MENUITEMS = [
     ("Docs", "https://sanic.readthedocs.io"),
     ("Source", "https://github.com/huge-success/sanic"),
     ("Forums", "https://community.sanicframework.org/"),
+    ("S.C.O.P.E.", "/pages/scope.html"),
     ("Awesome Sanic", "https://github.com/mekicha/awesome-sanic#readme/"),
 ]
 GITHUB = "https://github.com/huge-success/sanic"
@@ -49,3 +50,5 @@ SITEDESCRIPTION = "Sanic is an async enabled Python 3.5+ web framework that's wr
 ARTICLE_URL = "{slug}"
 DISQUS_SITENAME = "sanicframework"
 OUTPUT_PATH = "docs/"
+PAGE_PATHS = ['pages']
+DISPLAY_PAGES_ON_MENU = False
